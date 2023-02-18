@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: "my-awesome-app"
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${env.MAIL_USERNAME}
+    password: ${env.MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            trust: smtp.gmail.com
+---
+app:
+  from: ${env.MAIL_USERNAME}
